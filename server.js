@@ -14,6 +14,7 @@ import {fileURLToPath} from 'url';
 
 import indexRouter from "./routes/index.js";
 import itemRouter from "./routes/items.js";
+import userRouter from "./routes/users.js";
 
 import mongoose from "mongoose";
 
@@ -32,9 +33,11 @@ const db = mongoose.connection;
 db.on("error", error => console.log(error));
 db.once("open", () => console.log("Connection successful"));
 
+app.use(express.json());
+
 app.use("/", indexRouter);
 app.use("/items", itemRouter);
-
+app.use("/auth", userRouter);
 
 
 app.listen(process.env.PORT || 3000);
