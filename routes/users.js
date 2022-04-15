@@ -32,10 +32,10 @@ router.post("/signup", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-    res.render("login.ejs");
+    res.render("auth/login");
 })
 
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
     const body = req.body;
     const user = await User.findOne({ email: body.email });
     if (user) {

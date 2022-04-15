@@ -1,5 +1,6 @@
 import { Router } from "express";
 import Item from "../models/item.js";
+
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -28,7 +29,7 @@ router.post("/", async (req, res) => {
     });
     try {
         const newItem = await item.save();
-        res.redirect(`items`)
+        res.redirect(`items/new`)
     } catch {
         res.render("items/new", {
             item: item,

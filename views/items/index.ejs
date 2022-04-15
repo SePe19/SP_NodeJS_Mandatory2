@@ -1,3 +1,5 @@
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+
 <h2>Search items</h2>
 <form action="/items" method="GET">
     <label>Name</label>
@@ -5,7 +7,7 @@
     <button type="submit">Search</button>
 </form>
 <% items.forEach(item=> { %>
-    <div>
+    <div class="items">
         <%= item.name %>
     </div>
     <% }) %>

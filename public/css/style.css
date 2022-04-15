@@ -1,0 +1,37 @@
+body {
+    background-color: rgb(204, 232, 250);
+    color: black;
+}
+
+ul.nav {
+    padding-left: 0px;
+    background-color: navy;
+    text-align: center;
+}
+
+ul.nav>li {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+ul.nav>li:hover {
+    background-color: lightskyblue;
+}
+
+ul.nav>li>a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.items {
+    width: 20%;
+    display: inline;
+    text-align: center;
+}
+
+.theatre_mode {
+    width: 50%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
