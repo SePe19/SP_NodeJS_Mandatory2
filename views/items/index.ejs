@@ -1,13 +1,14 @@
-<link href="/css/style.css" rel="stylesheet" type="text/css">
-
 <h2>Search items</h2>
 <form action="/items" method="GET">
     <label>Name</label>
     <input type="text" name="name" value="<%= searchItems.name %>">
     <button type="submit">Search</button>
 </form>
-<% items.forEach(item=> { %>
-    <div class="items">
-        <%= item.name %>
-    </div>
-    <% }) %>
+<div class="shop-items">
+    <% items.forEach(item=> { %>
+        <div class="shop-item">
+            <div class="shop-item-title"></div>
+            <%= item.name %>
+        </div>
+        <% }) %>
+</div>

@@ -8,6 +8,10 @@ import express from "express";
 const app = express();
 import expressLayouts from "express-ejs-layouts";
 import bodyParser from "body-parser";
+import passport from "passport";
+import flash from "express-flash";
+import session from "express-session";
+import methodOverride from "method-override";
 
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -19,8 +23,6 @@ import emailRouter from "./routes/email.js";
 
 import mongoose from "mongoose";
 
-import nodemailer from "nodemailer";
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -30,6 +32,16 @@ app.set("layout", "layouts/layout");
 app.use(expressLayouts);
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: false }));
+app.use(express.urlencoded({ extended: false }))
+app.use(flash());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride("_method"));
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
 const db = mongoose.connection;

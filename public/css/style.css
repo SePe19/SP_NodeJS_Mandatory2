@@ -1,6 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
 body {
-    background-color: rgb(204, 232, 250);
+    background-color: #FFFFFF;
+    font-family: 'EB Garamond', sans-serif;
+}
+
+.nav {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+@keyframes shimmer {
+    from {
+        color: navy;
+    }
+
+    to {
+        color: blue;
+    }
+}
+
+h1 {
+    animation: text-glow 2s ease-out infinite alternate;
+    animation-name: shimmer;
+    color: navy;
+    font-size: 48px;
+    font-size: 3.6rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+h2 {
     color: black;
+    font-size: 48px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 ul.nav {
@@ -23,15 +58,92 @@ ul.nav>li>a {
     text-decoration: none;
 }
 
-.items {
-    width: 20%;
-    display: inline;
-    text-align: center;
+.shop-items {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 10px;
 }
 
-.theatre_mode {
-    width: 50%;
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+.shop-item {
+    position: relative;
+    width: 32%;
+    display: table-cell;
+    margin: 30px;
+}
+
+#carousel {
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    margin: 0 auto 0 auto;
+    width: 100vw;
+    height: fit-content;
+    border: solid #FFFFFF .5px;
+}
+
+.item {
+    width: 250px;
+    height: 60vh;
+    margin: 15px;
+    font-size: 2em;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+}
+
+.shop-item-title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.shop-item-image {
+    height: 200px;
+    aspect-ratio: 1;
+}
+
+.shop-item-details {
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.shop-item-price {
+    font-size: 0.8em;
+    font-weight: bold;
+    flex-grow: 1;
+    color: black;
+}
+
+#button {
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: content-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: 'EB Garamond', sans-serif;
+  font-size: 0.6em;
+  font-weight: 900;
+  height: 2rem;
+  width: fit-content;
+  padding: 0 1rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
 }
