@@ -15,7 +15,7 @@ initializePassport(
 const router = Router();
 
 router.get("/", checkAuthenticated, (req, res) => {
-    res.render("auth/index", { name: req.user.name });
+    res.render("auth/index");
 });
 
 router.get("/login", checkNotAuthenticated, (req, res) => {
@@ -34,10 +34,10 @@ router.get("/register", checkNotAuthenticated, (req, res) => {
 
 router.post("/register", checkNotAuthenticated, async (req, res) => {
     try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const user = { email: req.body.email, password: hashedPassword };
+        let hashedPassword = await bcrypt.hash(req.body.password, 10);
+        let user = { email: req.body.email, password: hashedPassword };
         user.save();
-        res.redirect(`auth/login`);
+        res.redirect("/auth/login");
     } catch {
         res.redirect("/auth/register");
     }

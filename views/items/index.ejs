@@ -4,11 +4,11 @@
     <input type="text" name="name" value="<%= searchItems.name %>">
     <button type="submit">Search</button>
 </form>
-<div class="shop-items">
-    <% items.forEach(item=> { %>
-        <div class="shop-item">
-            <div class="shop-item-title"></div>
+<ol class="centered-list">
+    
+        <% items.forEach(item=> { %>
+<li class="item-list">
             <%= item.name %>
-        </div>
-        <% }) %>
-</div>
+    
+    <% }) %></li>
+</ol>
